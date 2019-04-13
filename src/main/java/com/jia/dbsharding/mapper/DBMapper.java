@@ -12,7 +12,7 @@ public interface DBMapper {
     @Insert("INSERT INTO master_db.user (name) values (#{name})")
     public void insertName(@Param("name") String name);
 
-    @Select("SELECT id, name FROM slave_db.user WHERE id = #{id}")
+    @Select("SELECT id, name FROM master_db.user WHERE id = #{id}")
     public DBEntity selectName(@Param("id") Integer id);
 
 

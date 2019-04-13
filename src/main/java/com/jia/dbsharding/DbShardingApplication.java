@@ -1,5 +1,6 @@
 package com.jia.dbsharding;
 
+import com.jia.dbsharding.entity.DBEntity;
 import com.jia.dbsharding.service.DBService;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.mybatis.spring.annotation.MapperScan;
@@ -26,12 +27,14 @@ public class DbShardingApplication {
 
     @GetMapping("/select")
     public String select(@RequestParam("id") Integer id){
-        service.select(id);
+        DBEntity dbEntity = service.select(id);
+        System.out.println(dbEntity);
         return "OK";
     }
 
     @GetMapping("/insert")
     public String insert(@RequestParam("name") String name){
+        System.out.println("name = " + name);
         service.insertName(name);
         return "OK";
     }

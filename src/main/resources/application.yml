@@ -1,15 +1,15 @@
 spring:
   #配置两个数据源
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/master_db
-    username: root
-    password: 666
+    url: jdbc:mysql://192.168.1.198:3306/master_db?serverTimezone=GMT
+    username: master
+    password: master
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
   datasourceslave:
-    url: jdbc:mysql://127.0.0.1:3306/slave_db
-    username: root
-    password: 666
+    url: jdbc:mysql://192.168.2.129:3306/master_db?serverTimezone=GMT
+    username: slave
+    password: slave
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.DruidDataSource
 server:
