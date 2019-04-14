@@ -1,10 +1,8 @@
 package com.jia.dbsharding.service;
 
-import com.jia.dbsharding.DbShardingApplication;
 import com.jia.dbsharding.config.RoutingDataSource;
 import com.jia.dbsharding.entity.DBEntity;
 import com.jia.dbsharding.mapper.DBMapper;
-import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -28,6 +26,7 @@ public class DBServiceImpl implements DBService{
         mapper.insertName(name);
     }
 
+    // 需要读写分离就使用 slaveDB
 //    @RoutingDataSource("slaveDB")
     @RoutingDataSource("masterDB")
     @Override
